@@ -2,4 +2,4 @@
 My Neovim configurations
 
 # Features
-* Plugin manager - dein.vim
+* Plugin manager - [vim-plug](https://github.com/junegunn/vim-plug) ✔️
