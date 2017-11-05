@@ -6,15 +6,17 @@ endfunction
 function! mynvim#plugins#install_plugin_manager()
   let l:mynvim_plug_vim_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   call mynvim#plugins#set_plugin_dirs()
-
-  if empty(glob(g:mynvim_plug_vim_path))
-    silent execute "!curl -fLo " . g:mynvim_plug_vim_path . ' --create-dirs ' . l:mynvim_plug_vim_url
-
-    " Install all plugins if plug.vim is newly installed
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  endif
+  call mynvim#helpers#download_file(
+			    \ l:mynvim_plug_vim_url,
+			    \ g:mynvim_plug_vim_path,
+			    \ function('s:mynvim_plugins_plug_install_callback'))
 endfunction
 
 function! mynvim#plugins#generic_plugins()
   Plug 'tpope/vim-surround'
 endfunction
+
+function! s:mynvim_plugins_plug_install_callback()
+  " Install all plugins if plug.vim is newly installed
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endfunction!
