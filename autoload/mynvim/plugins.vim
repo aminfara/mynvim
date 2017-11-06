@@ -7,13 +7,16 @@ function! mynvim#plugins#install_plugin_manager()
   let l:mynvim_plug_vim_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   call mynvim#plugins#set_plugin_dirs()
   call mynvim#helpers#download_file(
-			    \ l:mynvim_plug_vim_url,
-			    \ g:mynvim_plug_vim_path,
-			    \ function('s:mynvim_plugins_plug_install_callback'))
+          \ l:mynvim_plug_vim_url,
+          \ g:mynvim_plug_vim_path,
+          \ function('s:mynvim_plugins_plug_install_callback'))
 endfunction
 
-function! mynvim#plugins#generic_plugins()
+function! mynvim#plugins#load_plugins()
+  call plug#begin(g:mynvim_plug_vim_plugins)
   Plug 'tpope/vim-surround'
+  Plug 'chriskempson/base16-vim'
+  call plug#end()
 endfunction
 
 function! s:mynvim_plugins_plug_install_callback()
