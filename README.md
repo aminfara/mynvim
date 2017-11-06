@@ -2,4 +2,6 @@
 My Neovim configurations
 
 # Features
-* Plugin manager - [vim-plug](https://github.com/junegunn/vim-plug) ✔️
+* Designed for Neovim ✔
+* Sane out-of-box vim configurations ✔
+* Plugin manager - [vim-plug](https://github.com/junegunn/vim-plug) ✔
