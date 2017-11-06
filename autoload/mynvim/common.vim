@@ -117,6 +117,7 @@ endfunction
 
 function! s:mynvim_common_behavioral_vimfiles_config()
   set nobackup
+  set nowritebackup
   set noswapfile
   set undofile
   set undolevels=2000
@@ -127,6 +128,7 @@ function! s:mynvim_common_behavioral_indentation_config()
   set expandtab
   set shiftwidth=2
   set tabstop=2
+  set shiftround
 endfunction
 
 function! s:mynvim_common_behavioral_search_config()
