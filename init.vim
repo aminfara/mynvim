@@ -6,3 +6,5 @@ call mynvim#plugins#load_plugins()
 
 call mynvim#common#behavioral_config()
 call mynvim#common#visual_config()
+
+call mynvim#statusline#airline_config()
