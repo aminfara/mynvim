@@ -65,7 +65,7 @@ endfunction
 
 function! s:mynvim_common_visual_terminal_config()
   " Setting color to 16 for xterm
-  if &term == "xterm" || &term == 'screen'
+  if $TERM == "xterm" || $TERM == 'screen'
     set t_Co=16
     " clearing using the current background color
     set t_ut=
@@ -76,7 +76,8 @@ function! s:mynvim_common_visual_terminal_config()
   endif
 
   " Setting color to 256 for more sophisticated terminals
-  if &term =~ '256color'
+  if $TERM =~ '256color'
+    let g:base16colorspace=256
     set t_Co=256
     " clearing using the current background color
     set t_ut=
@@ -86,9 +87,10 @@ endfunction
 function! s:mynvim_common_visual_colorscheme_config()
   colorscheme default
   if !empty(glob(g:mynvim_local_dir.'/plugins/base16-vim'))
-              \ && filereadable(expand("~/.vimrc_background"))
-    let g:base16colorspace=256
-    source ~/.vimrc_background
+    colorscheme base16-default-dark
+      if filereadable(expand("~/.vimrc_background"))
+        source ~/.vimrc_background
+      endif
   endif
 endfunction
 
