@@ -19,10 +19,16 @@ function! mynvim#plugins#load_plugins()
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
+  Plug 'Shougo/denite.nvim', { 'do': function('UpdateRemotePlugin') }
   call plug#end()
 endfunction
 
 function! s:mynvim_plugins_plug_install_callback()
   " Install all plugins if plug.vim is newly installed
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endfunction!
+endfunction
+
+function! UpdateRemotePlugin(argument)
+  UpdateRemotePlugins
+endfunction
