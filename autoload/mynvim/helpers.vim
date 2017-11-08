@@ -1,3 +1,10 @@
+function! mynvim#helpers#pyenv_setup()
+  if executable('pyenv')
+    let g:python_host_prog = systemlist('pyenv which python2')[0]
+    let g:python3_host_prog = systemlist('pyenv which python3')[0]
+  endif
+endfunction
+
 function! mynvim#helpers#relative_source(source_file) abort
   execute "source " . g:mynvim_config_dir . "/" . a:source_file
 endfunction

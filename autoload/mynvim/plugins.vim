@@ -26,6 +26,8 @@ function! mynvim#plugins#load_plugins()
   Plug 'majutsushi/tagbar', { 'on':  'TagbarToggle' }
   Plug 'ludovicchabant/vim-gutentags'
 
+  Plug 'nathanaelkane/vim-indent-guides'
+
   call plug#end()
 endfunction
 
