@@ -15,5 +15,6 @@ call mynvim#statusline#airline_config()
 call mynvim#finder#denite_config()
 call mynvim#tags#gutentags_config()
 call mynvim#indentguides#indent_guides_config()
+call mynvim#filetree#nerdtree_config()
 
 call mynvim#mappings#all()

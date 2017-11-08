@@ -28,6 +28,8 @@ function! mynvim#plugins#load_plugins()
 
   Plug 'nathanaelkane/vim-indent-guides'
 
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
   call plug#end()
 endfunction
 
