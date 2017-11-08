@@ -8,3 +8,11 @@ My Neovim configurations
 * Beautiful colorscheme - [base16-vim](https://github.com/chriskempson/base16-vim) ✔
 * Pretty status line no need for powerline fonts - [vim-airline](https://github.com/vim-airline/vim-airline) ✔
 * Anything finder - [denite.nvim](https://github.com/Shougo/denite.nvim) ✔
+* Tags - [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags) - [tagbar](https://github.com/majutsushi/tagbar) ✔
+
+# Required tools
+* Neovim
+* base16-shell for better colors
+* silver-searcher (ag)
+* ctags
+* python 2 and 3 with neovim

@@ -96,7 +96,7 @@ endfunction
 
 function! s:mynvim_common_visual_wildmenu_config()
   set wildmode=longest,full
-  set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
+  set wildignore=build,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 endfunction
 
 function! s:mynvim_common_visual_wraping_config()

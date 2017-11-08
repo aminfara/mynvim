@@ -15,12 +15,17 @@ endfunction
 function! mynvim#plugins#load_plugins()
   call plug#begin(g:mynvim_plug_vim_plugins)
   Plug 'tpope/vim-surround'
+
   Plug 'chriskempson/base16-vim'
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
   Plug 'Shougo/denite.nvim', { 'do': function('UpdateRemotePlugin') }
+
+  Plug 'majutsushi/tagbar', { 'on':  'TagbarToggle' }
+  Plug 'ludovicchabant/vim-gutentags'
+
   call plug#end()
 endfunction
 
