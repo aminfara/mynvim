@@ -1,5 +1,5 @@
 function! mynvim#finder#denite_config()
-  if !empty(glob(g:mynvim_plug_vim_plugins . '/denite.nvim'))
+  if mynvim#plugins#plugin_exists('denite.nvim')
 
     call denite#custom#option('_', {
           \ 'prompt': 'λ:',

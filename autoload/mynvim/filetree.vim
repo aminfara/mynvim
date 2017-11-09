@@ -1,20 +1,38 @@
-function! mynvim#filetree#nerdtree_config()
-  if !empty(glob(g:mynvim_plug_vim_plugins . '/nerdtree'))
-    let g:NERDTreeShowHidden=1
-    augroup mynvim_filetree
-      autocmd!
-      autocmd bufenter * call s:mynvim_filetree_close_if_only_control_window_left()
-    augroup END
+function! mynvim#filetree#plugins()
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  call mynvim#plugins#set_need_install('nerdtree')
+endfunction
+
+function! mynvim#filetree#config()
+  if mynvim#plugins#plugin_exists('nerdtree')
+    call s:mynvim_filetree_nerdtree_config()
   endif
 endfunction
 
-function! mynvim#filetree#nerdtree_open()
-  if !empty(glob(g:mynvim_plug_vim_plugins . '/nerdtree'))
+function! mynvim#filetree#mappings()
+  if mynvim#plugins#plugin_exists('nerdtree')
+    nnoremap <silent><Leader>nn :<C-u>call <SID>mynvim_filetree_nerdtree_open()<CR>
+    nnoremap <silent><Leader>nc :<C-u>NERDTreeToggle<CR>
+  endif
+endfunction
+
+function! s:mynvim_filetree_nerdtree_open()
+  if mynvim#plugins#plugin_exists('nerdtree')
     if exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
       NERDTreeFocus
     else
       NERDTreeToggle
     endif
+  endif
+endfunction
+
+function! s:mynvim_filetree_nerdtree_config()
+  if mynvim#plugins#plugin_exists('nerdtree')
+    let g:NERDTreeShowHidden=1
+    augroup mynvim_filetree
+      autocmd!
+      autocmd bufenter * call s:mynvim_filetree_close_if_only_control_window_left()
+    augroup END
   endif
 endfunction
 
@@ -24,6 +42,6 @@ function! s:mynvim_filetree_close_if_only_control_window_left()
   endif
   if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
         \ || &buftype == 'quickfix' " TODO: maybe better to separate this
-    q
+    quit
   endif
 endfunction

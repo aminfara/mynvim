@@ -1,5 +1,5 @@
 function! mynvim#statusline#airline_config()
-  if !empty(glob(g:mynvim_plug_vim_plugins . '/vim-airline'))
+  if mynvim#plugins#plugin_exists('vim-airline')
     let g:airline_powerline_fonts = 0
     let g:airline_theme = 'base16'
     let g:airline#extensions#tabline#enabled = 1
