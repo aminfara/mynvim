@@ -11,9 +11,9 @@ call mynvim#common#behavioral_config()
 call mynvim#common#visual_config()
 
 call mynvim#statusline#airline_config()
-call mynvim#finder#denite_config()
+call mynvim#finder#configs()
 call mynvim#tags#gutentags_config()
 call mynvim#indentguides#indent_guides_config()
-call mynvim#filetree#config()
+call mynvim#filetree#configs()
 
 call mynvim#mappings#all()

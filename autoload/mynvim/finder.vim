@@ -1,4 +1,30 @@
-function! mynvim#finder#denite_config()
+function! mynvim#finder#plugins()
+  function! UpdateRemotePlugin(argument)
+    UpdateRemotePlugins
+  endfunction
+
+  Plug 'Shougo/denite.nvim', { 'do': function('UpdateRemotePlugin') }
+  call mynvim#plugins#set_need_install('denite.nvim')
+endfunction
+
+function! mynvim#finder#configs()
+  if mynvim#plugins#plugin_exists('denite.nvim')
+    call s:mynvim_finder_denite_config()
+  endif
+endfunction
+
+function! mynvim#finder#mappings()
+  if mynvim#plugins#plugin_exists('denite.nvim')
+    nnoremap <silent><Leader>db :<C-u>Denite buffer<CR>
+    nnoremap <silent><Leader>df :<C-u>Denite file_rec<CR>
+    nnoremap <silent><Leader>ds :<C-u>Denite grep:::!<CR>
+    nnoremap <silent><Leader>dt :<C-u>Denite tag<CR>
+    nnoremap <silent><Leader>dws :<C-u>DeniteCursorWord grep<CR>
+    nnoremap <silent><Leader>dwt :<C-u>DeniteCursorWord tag<CR>
+  endif
+endfunction
+
+function! s:mynvim_finder_denite_config()
   if mynvim#plugins#plugin_exists('denite.nvim')
 
     call denite#custom#option('_', {

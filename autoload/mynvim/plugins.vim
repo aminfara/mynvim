@@ -38,7 +38,7 @@ function! s:mynvim_plugins_load_plugins()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  Plug 'Shougo/denite.nvim', { 'do': function('UpdateRemotePlugins') }
+  call mynvim#finder#plugins()
 
   Plug 'majutsushi/tagbar', { 'on':  'TagbarToggle' }
   Plug 'ludovicchabant/vim-gutentags'
@@ -63,6 +63,3 @@ function! s:mynvim_plugins_set_plugin_dirs()
   let g:mynvim_plugins_path = g:mynvim_local_dir . '/plugins'
 endfunction
 
-function! UpdateRemotePlugins(argument)
-  UpdateRemotePlugins
-endfunction

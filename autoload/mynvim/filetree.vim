@@ -3,7 +3,7 @@ function! mynvim#filetree#plugins()
   call mynvim#plugins#set_need_install('nerdtree')
 endfunction
 
-function! mynvim#filetree#config()
+function! mynvim#filetree#configs()
   if mynvim#plugins#plugin_exists('nerdtree')
     call s:mynvim_filetree_nerdtree_config()
   endif
