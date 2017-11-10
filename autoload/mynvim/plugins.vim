@@ -38,9 +38,7 @@ function! s:mynvim_plugins_load_plugins()
 
   call mynvim#statusline#plugins()
   call mynvim#finder#plugins()
-
-  Plug 'majutsushi/tagbar', { 'on':  'TagbarToggle' }
-  Plug 'ludovicchabant/vim-gutentags'
+  call mynvim#tags#plugins()
 
   Plug 'nathanaelkane/vim-indent-guides'
 

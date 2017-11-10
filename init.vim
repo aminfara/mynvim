@@ -12,7 +12,7 @@ call mynvim#common#visual_config()
 
 call mynvim#statusline#configs()
 call mynvim#finder#configs()
-call mynvim#tags#gutentags_config()
+call mynvim#tags#configs()
 call mynvim#indentguides#indent_guides_config()
 call mynvim#filetree#configs()
 
