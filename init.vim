@@ -10,7 +10,7 @@ call mynvim#plugins#manage()
 call mynvim#common#behavioral_config()
 call mynvim#common#visual_config()
 
-call mynvim#statusline#airline_config()
+call mynvim#statusline#configs()
 call mynvim#finder#configs()
 call mynvim#tags#gutentags_config()
 call mynvim#indentguides#indent_guides_config()

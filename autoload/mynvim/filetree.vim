@@ -16,23 +16,19 @@ function! mynvim#filetree#mappings()
   endif
 endfunction
 
-function! s:mynvim_filetree_nerdtree_open()
-  if mynvim#plugins#plugin_exists('nerdtree')
-    if exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
-      NERDTreeFocus
-    else
-      NERDTreeToggle
-    endif
-  endif
+function! s:mynvim_filetree_nerdtree_config()
+  let g:NERDTreeShowHidden=1
+  augroup mynvim_filetree
+    autocmd!
+    autocmd bufenter * call s:mynvim_filetree_close_if_only_control_window_left()
+  augroup END
 endfunction
 
-function! s:mynvim_filetree_nerdtree_config()
-  if mynvim#plugins#plugin_exists('nerdtree')
-    let g:NERDTreeShowHidden=1
-    augroup mynvim_filetree
-      autocmd!
-      autocmd bufenter * call s:mynvim_filetree_close_if_only_control_window_left()
-    augroup END
+function! s:mynvim_filetree_nerdtree_open()
+  if exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+    NERDTreeFocus
+  else
+    NERDTreeToggle
   endif
 endfunction
 

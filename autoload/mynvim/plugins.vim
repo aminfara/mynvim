@@ -35,9 +35,8 @@ function! s:mynvim_plugins_load_plugins()
 
   Plug 'chriskempson/base16-vim'
 
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
 
+  call mynvim#statusline#plugins()
   call mynvim#finder#plugins()
 
   Plug 'majutsushi/tagbar', { 'on':  'TagbarToggle' }
