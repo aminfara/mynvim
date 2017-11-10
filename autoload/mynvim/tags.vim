@@ -1,6 +1,6 @@
 function! mynvim#tags#plugins()
   Plug 'ludovicchabant/vim-gutentags'
-  Plug 'majutsushi/tagbar', { 'on':  'TagbarToggle' }
+  Plug 'majutsushi/tagbar', { 'on':  'TagbarOpen' }
   call mynvim#plugins#set_need_install('vim-gutentags')
   call mynvim#plugins#set_need_install('tagbar')
 endfunction
@@ -20,7 +20,8 @@ function! mynvim#tags#mappings()
   endif
 
   if mynvim#plugins#plugin_exists('tagbar')
-    nnoremap <silent><Leader>tt :<C-u>TagbarToggle<CR>
+    nnoremap <silent><Leader>tt :<C-u>TagbarOpen fj<CR>
+    nnoremap <silent><Leader>tc :<C-u>TagbarClose<CR>
   endif
 endfunction
 
@@ -28,4 +29,5 @@ function! s:mynvim_tags_gutentags_config()
 endfunction
 
 function! s:mynvim_tags_tagbar_config()
+  let g:tagbar_autofocus = 1
 endfunction
