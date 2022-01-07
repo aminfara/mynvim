@@ -27,8 +27,17 @@ return packer.startup({
     -- Packer can manage itself
     use('wbthomason/packer.nvim')
 
+    --color scheme
+    use({
+      'RRethy/nvim-base16',
+      config = function()
+        require('mynvim.colorscheme')
+      end,
+    })
+
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
+      vim.cmd('hi clear Pmenu')
       packer.sync()
     end
   end,
